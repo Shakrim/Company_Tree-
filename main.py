@@ -24,6 +24,20 @@ class Employee(Person):
         self.performance = None
         self.salary = salary
 
+class Trainee(Person):
+    vacation_base = 20
+    def __init__(self, name, address, nationality, birthdate, id, department):
+        super().__init__(name, address, nationality, birthdate)
+        self.id = id
+        self.department = department
+        self.performance = None
+
+    @property
+    def vacation(self):
+        if self.performance:
+            return self.performance/100 * Trainee.vacation_base
+        else:
+            raise AttributeError("Trainee can't have a vacation without performance evaluation.")
 
 class Programmer(Employee):
 
