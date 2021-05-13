@@ -10,6 +10,10 @@ class Person:
         self.birthdate = birthdate
 
     def calculate_age(self):
+        """
+        This method calculate age of person instance based on the actual date.
+        :return: int
+        """
         diff = date.today() - self.birthdate
         return round(diff.days / 365, 1)
 
@@ -34,6 +38,10 @@ class Trainee(Person):
 
     @property
     def vacation(self):
+        """
+        Property calculates the number of vacation days based on the performance of trainee.
+        :return: int
+        """
         if self.performance:
             return self.performance/100 * Trainee.vacation_base
         else:
